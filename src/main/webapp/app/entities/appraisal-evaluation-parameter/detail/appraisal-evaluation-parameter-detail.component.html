@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appraisalEvaluationParameter">
+      <h2 data-cy="appraisalEvaluationParameterDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.detail.title">Appraisal Evaluation Parameter</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.name">Name</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.description">Description</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.type">Type</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.status">Status</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluationParameter.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluationParameter.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button
+        type="button"
+        [routerLink]="['/appraisal-evaluation-parameter', appraisalEvaluationParameter.id, 'edit']"
+        class="btn btn-primary"
+      >
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

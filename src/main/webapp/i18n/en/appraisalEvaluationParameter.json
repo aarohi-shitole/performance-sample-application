@@ -1,0 +1,30 @@
+{
+  "performanceSampleApplicationApp": {
+    "appraisalEvaluationParameter": {
+      "home": {
+        "title": "Appraisal Evaluation Parameters",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appraisal Evaluation Parameter",
+        "createOrEditLabel": "Create or edit a Appraisal Evaluation Parameter",
+        "notFound": "No Appraisal Evaluation Parameters found"
+      },
+      "created": "A new Appraisal Evaluation Parameter is created with identifier {{ param }}",
+      "updated": "A Appraisal Evaluation Parameter is updated with identifier {{ param }}",
+      "deleted": "A Appraisal Evaluation Parameter is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appraisal Evaluation Parameter {{ id }}?"
+      },
+      "detail": {
+        "title": "Appraisal Evaluation Parameter"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "type": "Type",
+      "companyId": "Company Id",
+      "status": "Status",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

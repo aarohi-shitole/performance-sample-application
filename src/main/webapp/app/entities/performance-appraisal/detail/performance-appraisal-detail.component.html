@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="performanceAppraisal">
+      <h2 data-cy="performanceAppraisalDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.detail.title">Performance Appraisal</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.status">Status</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ performanceAppraisal.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceAppraisal.appraisalReview">Appraisal Review</span></dt>
+        <dd>
+          <div *ngIf="performanceAppraisal.appraisalReview">
+            <a [routerLink]="['/appraisal-review', performanceAppraisal.appraisalReview.id, 'view']">{{
+              performanceAppraisal.appraisalReview.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/performance-appraisal', performanceAppraisal.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

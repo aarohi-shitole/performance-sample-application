@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employeeGoalsReview">
+      <h2 data-cy="employeeGoalsReviewDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.detail.title">Employee Goals Review</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.goalDescription">Goal Description</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.goalDescription }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.goalCategory">Goal Category</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.goalCategory }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.goaltype">Goaltype</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.goaltype }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.goalSetBy">Goal Set By</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.goalSetBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.appraisalReviewId">Appraisal Review Id</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.appraisalReviewId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.status">Status</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employeeGoalsReview.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ employeeGoalsReview.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee-goals-review', employeeGoalsReview.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

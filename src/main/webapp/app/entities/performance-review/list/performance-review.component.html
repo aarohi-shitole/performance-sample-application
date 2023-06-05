@@ -1,0 +1,233 @@
+<div>
+  <h2 id="page-heading" data-cy="PerformanceReviewHeading">
+    <span jhiTranslate="performanceSampleApplicationApp.performanceReview.home.title">Performance Reviews</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="performanceSampleApplicationApp.performanceReview.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-performance-review"
+        [routerLink]="['/performance-review/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="performanceSampleApplicationApp.performanceReview.home.createLabel"> Create a new Performance Review </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="performanceReviews?.length === 0">
+    <span jhiTranslate="performanceSampleApplicationApp.performanceReview.home.notFound">No Performance Reviews found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="performanceReviews && performanceReviews.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="appraisalReviewId">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalReviewId">Appraisal Review Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employeeRemark">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.employeeRemark">Employee Remark</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="appraiserRemark">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraiserRemark">Appraiser Remark</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reviewerRemark">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewerRemark">Reviewer Remark</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="selfScored">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.selfScored">Self Scored</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="scoredByAppraiser">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByAppraiser">Scored By Appraiser</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="scoredByReviewer">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByReviewer">Scored By Reviewer</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="appraisalStatus">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalStatus">Appraisal Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="submissionDate">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.submissionDate">Submission Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="appraisalDate">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalDate">Appraisal Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reviewDate">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewDate">Review Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="companyId">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.companyId">Company Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="target">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.target">Target</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="targetAchived">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.targetAchived">Target Achived</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="performanceIndicator.id">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceReview.performanceIndicator">Performance Indicator</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let performanceReview of performanceReviews; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/performance-review', performanceReview.id, 'view']">{{ performanceReview.id }}</a>
+          </td>
+          <td>{{ performanceReview.appraisalReviewId }}</td>
+          <td>{{ performanceReview.employeeRemark }}</td>
+          <td>{{ performanceReview.appraiserRemark }}</td>
+          <td>{{ performanceReview.reviewerRemark }}</td>
+          <td>{{ performanceReview.selfScored }}</td>
+          <td>{{ performanceReview.scoredByAppraiser }}</td>
+          <td>{{ performanceReview.scoredByReviewer }}</td>
+          <td>{{ performanceReview.appraisalStatus }}</td>
+          <td>{{ performanceReview.submissionDate | formatMediumDatetime }}</td>
+          <td>{{ performanceReview.appraisalDate | formatMediumDatetime }}</td>
+          <td>{{ performanceReview.reviewDate | formatMediumDatetime }}</td>
+          <td>{{ performanceReview.status }}</td>
+          <td>{{ performanceReview.companyId }}</td>
+          <td>{{ performanceReview.lastModified | formatMediumDatetime }}</td>
+          <td>{{ performanceReview.lastModifiedBy }}</td>
+          <td>{{ performanceReview.target }}</td>
+          <td>{{ performanceReview.targetAchived }}</td>
+          <td>
+            <div *ngIf="performanceReview.performanceIndicator">
+              <a [routerLink]="['/performance-indicator', performanceReview.performanceIndicator.id, 'view']">{{
+                performanceReview.performanceIndicator.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/performance-review', performanceReview.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/performance-review', performanceReview.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(performanceReview)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="performanceReviews && performanceReviews.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

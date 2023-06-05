@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employee">
+      <h2 data-cy="employeeDetailsHeading"><span jhiTranslate="performanceSampleApplicationApp.employee.detail.title">Employee</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employee.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ employee.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ employee.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ employee.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.gender">Gender</span></dt>
+        <dd>
+          <span>{{ employee.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.empUniqueId">Emp Unique Id</span></dt>
+        <dd>
+          <span>{{ employee.empUniqueId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.joindate">Joindate</span></dt>
+        <dd>
+          <span>{{ employee.joindate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.status">Status</span></dt>
+        <dd>
+          <span>{{ employee.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.emailId">Email Id</span></dt>
+        <dd>
+          <span>{{ employee.emailId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.employmentTypeId">Employment Type Id</span></dt>
+        <dd>
+          <span>{{ employee.employmentTypeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.reportingEmpId">Reporting Emp Id</span></dt>
+        <dd>
+          <span>{{ employee.reportingEmpId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ employee.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ employee.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.employee.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ employee.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employee', employee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appraisalEvaluation">
+      <h2 data-cy="appraisalEvaluationDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.detail.title">Appraisal Evaluation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.answerFlag">Answer Flag</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.answerFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.description">Description</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.employeeId">Employee Id</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.employeeId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.appraisalReviewId">Appraisal Review Id</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.appraisalReviewId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.availablePoints">Available Points</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.availablePoints }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.scoredPoints">Scored Points</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.scoredPoints }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.remark">Remark</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.remark }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.status">Status</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ appraisalEvaluation.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="performanceSampleApplicationApp.appraisalEvaluation.appraisalEvaluationParameter"
+            >Appraisal Evaluation Parameter</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="appraisalEvaluation.appraisalEvaluationParameter">
+            <a [routerLink]="['/appraisal-evaluation-parameter', appraisalEvaluation.appraisalEvaluationParameter.id, 'view']">{{
+              appraisalEvaluation.appraisalEvaluationParameter.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/appraisal-evaluation', appraisalEvaluation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

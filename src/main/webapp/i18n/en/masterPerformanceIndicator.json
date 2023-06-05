@@ -1,0 +1,32 @@
+{
+  "performanceSampleApplicationApp": {
+    "masterPerformanceIndicator": {
+      "home": {
+        "title": "Master Performance Indicators",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Master Performance Indicator",
+        "createOrEditLabel": "Create or edit a Master Performance Indicator",
+        "notFound": "No Master Performance Indicators found"
+      },
+      "created": "A new Master Performance Indicator is created with identifier {{ param }}",
+      "updated": "A Master Performance Indicator is updated with identifier {{ param }}",
+      "deleted": "A Master Performance Indicator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Master Performance Indicator {{ id }}?"
+      },
+      "detail": {
+        "title": "Master Performance Indicator"
+      },
+      "id": "ID",
+      "category": "Category",
+      "type": "Type",
+      "name": "Name",
+      "description": "Description",
+      "weightage": "Weightage",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}

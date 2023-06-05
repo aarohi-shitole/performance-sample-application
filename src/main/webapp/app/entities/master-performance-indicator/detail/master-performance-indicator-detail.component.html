@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="masterPerformanceIndicator">
+      <h2 data-cy="masterPerformanceIndicatorDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.detail.title">Master Performance Indicator</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.category">Category</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.category }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.type">Type</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.name">Name</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.description">Description</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.weightage">Weightage</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.weightage }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.status">Status</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.masterPerformanceIndicator.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ masterPerformanceIndicator.lastModifiedBy }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/master-performance-indicator', masterPerformanceIndicator.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
