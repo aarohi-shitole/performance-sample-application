@@ -48,6 +48,16 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.performance.domain.User.class.getName());
             createCache(cm, com.mycompany.performance.domain.Authority.class.getName());
             createCache(cm, com.mycompany.performance.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.performance.domain.Employee.class.getName());
+            createCache(cm, com.mycompany.performance.domain.MasterPerformanceIndicator.class.getName());
+            createCache(cm, com.mycompany.performance.domain.PerformanceIndicator.class.getName());
+            createCache(cm, com.mycompany.performance.domain.PerformanceAppraisal.class.getName());
+            createCache(cm, com.mycompany.performance.domain.AppraisalReview.class.getName());
+            createCache(cm, com.mycompany.performance.domain.PerformanceReview.class.getName());
+            createCache(cm, com.mycompany.performance.domain.AppraisalCommentsReview.class.getName());
+            createCache(cm, com.mycompany.performance.domain.EmployeeGoalsReview.class.getName());
+            createCache(cm, com.mycompany.performance.domain.AppraisalEvaluationParameter.class.getName());
+            createCache(cm, com.mycompany.performance.domain.AppraisalEvaluation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

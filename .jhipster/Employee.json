@@ -1,0 +1,69 @@
+{
+  "applications": "*",
+  "changelogDate": "20230605122148",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "employee",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "empUniqueId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "joindate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "employmentTypeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "reportingEmpId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "companyId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Employee",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

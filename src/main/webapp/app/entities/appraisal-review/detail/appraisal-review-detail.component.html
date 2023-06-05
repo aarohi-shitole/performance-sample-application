@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appraisalReview">
+      <h2 data-cy="appraisalReviewDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.appraisalReview.detail.title">Appraisal Review</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ appraisalReview.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.reportingOfficer">Reporting Officer</span></dt>
+        <dd>
+          <span>{{ appraisalReview.reportingOfficer }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.roDesignation">Ro Designation</span></dt>
+        <dd>
+          <span>{{ appraisalReview.roDesignation }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.status">Status</span></dt>
+        <dd>
+          <span>{{ appraisalReview.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ appraisalReview.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ appraisalReview.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ appraisalReview.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.appraisalReview.employee">Employee</span></dt>
+        <dd>
+          <div *ngIf="appraisalReview.employee">
+            <a [routerLink]="['/employee', appraisalReview.employee.id, 'view']">{{ appraisalReview.employee.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/appraisal-review', appraisalReview.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

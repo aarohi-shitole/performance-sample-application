@@ -1,0 +1,316 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-performance-review-heading"
+        data-cy="PerformanceReviewCreateUpdateHeading"
+        jhiTranslate="performanceSampleApplicationApp.performanceReview.home.createOrEditLabel"
+      >
+        Create or edit a Performance Review
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalReviewId"
+            for="field_appraisalReviewId"
+            >Appraisal Review Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="appraisalReviewId"
+            id="field_appraisalReviewId"
+            data-cy="appraisalReviewId"
+            formControlName="appraisalReviewId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.employeeRemark"
+            for="field_employeeRemark"
+            >Employee Remark</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="employeeRemark"
+            id="field_employeeRemark"
+            data-cy="employeeRemark"
+            formControlName="employeeRemark"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.appraiserRemark"
+            for="field_appraiserRemark"
+            >Appraiser Remark</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="appraiserRemark"
+            id="field_appraiserRemark"
+            data-cy="appraiserRemark"
+            formControlName="appraiserRemark"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewerRemark"
+            for="field_reviewerRemark"
+            >Reviewer Remark</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="reviewerRemark"
+            id="field_reviewerRemark"
+            data-cy="reviewerRemark"
+            formControlName="reviewerRemark"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.selfScored" for="field_selfScored"
+            >Self Scored</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="selfScored"
+            id="field_selfScored"
+            data-cy="selfScored"
+            formControlName="selfScored"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByAppraiser"
+            for="field_scoredByAppraiser"
+            >Scored By Appraiser</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="scoredByAppraiser"
+            id="field_scoredByAppraiser"
+            data-cy="scoredByAppraiser"
+            formControlName="scoredByAppraiser"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByReviewer"
+            for="field_scoredByReviewer"
+            >Scored By Reviewer</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="scoredByReviewer"
+            id="field_scoredByReviewer"
+            data-cy="scoredByReviewer"
+            formControlName="scoredByReviewer"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalStatus"
+            for="field_appraisalStatus"
+            >Appraisal Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="appraisalStatus"
+            id="field_appraisalStatus"
+            data-cy="appraisalStatus"
+            formControlName="appraisalStatus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.submissionDate"
+            for="field_submissionDate"
+            >Submission Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_submissionDate"
+              data-cy="submissionDate"
+              type="datetime-local"
+              class="form-control"
+              name="submissionDate"
+              formControlName="submissionDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalDate" for="field_appraisalDate"
+            >Appraisal Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_appraisalDate"
+              data-cy="appraisalDate"
+              type="datetime-local"
+              class="form-control"
+              name="appraisalDate"
+              formControlName="appraisalDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewDate" for="field_reviewDate"
+            >Review Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_reviewDate"
+              data-cy="reviewDate"
+              type="datetime-local"
+              class="form-control"
+              name="reviewDate"
+              formControlName="reviewDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.status" for="field_status"
+            >Status</label
+          >
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.companyId" for="field_companyId"
+            >Company Id</label
+          >
+          <input type="number" class="form-control" name="companyId" id="field_companyId" data-cy="companyId" formControlName="companyId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModifiedBy"
+            for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.target" for="field_target"
+            >Target</label
+          >
+          <input type="number" class="form-control" name="target" id="field_target" data-cy="target" formControlName="target" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="performanceSampleApplicationApp.performanceReview.targetAchived" for="field_targetAchived"
+            >Target Achived</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="targetAchived"
+            id="field_targetAchived"
+            data-cy="targetAchived"
+            formControlName="targetAchived"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="performanceSampleApplicationApp.performanceReview.performanceIndicator"
+            for="field_performanceIndicator"
+            >Performance Indicator</label
+          >
+          <select
+            class="form-control"
+            id="field_performanceIndicator"
+            data-cy="performanceIndicator"
+            name="performanceIndicator"
+            formControlName="performanceIndicator"
+            [compareWith]="comparePerformanceIndicator"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="performanceIndicatorOption" *ngFor="let performanceIndicatorOption of performanceIndicatorsSharedCollection">
+              {{ performanceIndicatorOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

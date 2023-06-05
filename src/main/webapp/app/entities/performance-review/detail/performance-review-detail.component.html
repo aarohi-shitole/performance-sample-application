@@ -1,0 +1,106 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="performanceReview">
+      <h2 data-cy="performanceReviewDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.performanceReview.detail.title">Performance Review</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ performanceReview.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalReviewId">Appraisal Review Id</span></dt>
+        <dd>
+          <span>{{ performanceReview.appraisalReviewId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.employeeRemark">Employee Remark</span></dt>
+        <dd>
+          <span>{{ performanceReview.employeeRemark }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraiserRemark">Appraiser Remark</span></dt>
+        <dd>
+          <span>{{ performanceReview.appraiserRemark }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewerRemark">Reviewer Remark</span></dt>
+        <dd>
+          <span>{{ performanceReview.reviewerRemark }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.selfScored">Self Scored</span></dt>
+        <dd>
+          <span>{{ performanceReview.selfScored }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByAppraiser">Scored By Appraiser</span></dt>
+        <dd>
+          <span>{{ performanceReview.scoredByAppraiser }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.scoredByReviewer">Scored By Reviewer</span></dt>
+        <dd>
+          <span>{{ performanceReview.scoredByReviewer }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalStatus">Appraisal Status</span></dt>
+        <dd>
+          <span>{{ performanceReview.appraisalStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.submissionDate">Submission Date</span></dt>
+        <dd>
+          <span>{{ performanceReview.submissionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.appraisalDate">Appraisal Date</span></dt>
+        <dd>
+          <span>{{ performanceReview.appraisalDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.reviewDate">Review Date</span></dt>
+        <dd>
+          <span>{{ performanceReview.reviewDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.status">Status</span></dt>
+        <dd>
+          <span>{{ performanceReview.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ performanceReview.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ performanceReview.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ performanceReview.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.target">Target</span></dt>
+        <dd>
+          <span>{{ performanceReview.target }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.targetAchived">Target Achived</span></dt>
+        <dd>
+          <span>{{ performanceReview.targetAchived }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceReview.performanceIndicator">Performance Indicator</span></dt>
+        <dd>
+          <div *ngIf="performanceReview.performanceIndicator">
+            <a [routerLink]="['/performance-indicator', performanceReview.performanceIndicator.id, 'view']">{{
+              performanceReview.performanceIndicator.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/performance-review', performanceReview.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

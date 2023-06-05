@@ -7,6 +7,16 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "employee": "Employee",
+        "masterPerformanceIndicator": "Master Performance Indicator",
+        "performanceIndicator": "Performance Indicator",
+        "performanceAppraisal": "Performance Appraisal",
+        "appraisalReview": "Appraisal Review",
+        "performanceReview": "Performance Review",
+        "appraisalCommentsReview": "Appraisal Comments Review",
+        "employeeGoalsReview": "Employee Goals Review",
+        "appraisalEvaluationParameter": "Appraisal Evaluation Parameter",
+        "appraisalEvaluation": "Appraisal Evaluation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

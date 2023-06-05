@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="performanceIndicator">
+      <h2 data-cy="performanceIndicatorDetailsHeading">
+        <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.detail.title">Performance Indicator</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.designationId">Designation Id</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.designationId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.indicatorValue">Indicator Value</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.indicatorValue }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.status">Status</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.companyId">Company Id</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.companyId }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ performanceIndicator.lastModifiedBy }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.masterPerformanceIndicator"
+            >Master Performance Indicator</span
+          >
+        </dt>
+        <dd>
+          <div *ngIf="performanceIndicator.masterPerformanceIndicator">
+            <a [routerLink]="['/master-performance-indicator', performanceIndicator.masterPerformanceIndicator.id, 'view']">{{
+              performanceIndicator.masterPerformanceIndicator.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/performance-indicator', performanceIndicator.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

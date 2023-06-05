@@ -1,0 +1,30 @@
+{
+  "performanceSampleApplicationApp": {
+    "appraisalReview": {
+      "home": {
+        "title": "Appraisal Reviews",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appraisal Review",
+        "createOrEditLabel": "Create or edit a Appraisal Review",
+        "notFound": "No Appraisal Reviews found"
+      },
+      "created": "A new Appraisal Review is created with identifier {{ param }}",
+      "updated": "A Appraisal Review is updated with identifier {{ param }}",
+      "deleted": "A Appraisal Review is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appraisal Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Appraisal Review"
+      },
+      "id": "ID",
+      "reportingOfficer": "Reporting Officer",
+      "roDesignation": "Ro Designation",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "employee": "Employee"
+    }
+  }
+}

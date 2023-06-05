@@ -1,0 +1,29 @@
+{
+  "performanceSampleApplicationApp": {
+    "performanceAppraisal": {
+      "home": {
+        "title": "Performance Appraisals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Performance Appraisal",
+        "createOrEditLabel": "Create or edit a Performance Appraisal",
+        "notFound": "No Performance Appraisals found"
+      },
+      "created": "A new Performance Appraisal is created with identifier {{ param }}",
+      "updated": "A Performance Appraisal is updated with identifier {{ param }}",
+      "deleted": "A Performance Appraisal is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Performance Appraisal {{ id }}?"
+      },
+      "detail": {
+        "title": "Performance Appraisal"
+      },
+      "id": "ID",
+      "employeeId": "Employee Id",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "appraisalReview": "Appraisal Review"
+    }
+  }
+}

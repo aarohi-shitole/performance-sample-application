@@ -1,0 +1,160 @@
+<div>
+  <h2 id="page-heading" data-cy="PerformanceIndicatorHeading">
+    <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.home.title">Performance Indicators</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-performance-indicator"
+        [routerLink]="['/performance-indicator/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.home.createLabel">
+          Create a new Performance Indicator
+        </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="performanceIndicators?.length === 0">
+    <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.home.notFound">No Performance Indicators found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="performanceIndicators && performanceIndicators.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="designationId">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.designationId">Designation Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="indicatorValue">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.indicatorValue">Indicator Value</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="companyId">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.companyId">Company Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="masterPerformanceIndicator.id">
+            <div class="d-flex">
+              <span jhiTranslate="performanceSampleApplicationApp.performanceIndicator.masterPerformanceIndicator"
+                >Master Performance Indicator</span
+              >
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let performanceIndicator of performanceIndicators; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/performance-indicator', performanceIndicator.id, 'view']">{{ performanceIndicator.id }}</a>
+          </td>
+          <td>{{ performanceIndicator.designationId }}</td>
+          <td>{{ performanceIndicator.indicatorValue }}</td>
+          <td>{{ performanceIndicator.status }}</td>
+          <td>{{ performanceIndicator.companyId }}</td>
+          <td>{{ performanceIndicator.lastModified | formatMediumDatetime }}</td>
+          <td>{{ performanceIndicator.lastModifiedBy }}</td>
+          <td>
+            <div *ngIf="performanceIndicator.masterPerformanceIndicator">
+              <a [routerLink]="['/master-performance-indicator', performanceIndicator.masterPerformanceIndicator.id, 'view']">{{
+                performanceIndicator.masterPerformanceIndicator.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/performance-indicator', performanceIndicator.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/performance-indicator', performanceIndicator.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(performanceIndicator)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="performanceIndicators && performanceIndicators.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

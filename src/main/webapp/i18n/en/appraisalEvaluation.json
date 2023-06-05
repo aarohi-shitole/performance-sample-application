@@ -1,0 +1,35 @@
+{
+  "performanceSampleApplicationApp": {
+    "appraisalEvaluation": {
+      "home": {
+        "title": "Appraisal Evaluations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appraisal Evaluation",
+        "createOrEditLabel": "Create or edit a Appraisal Evaluation",
+        "notFound": "No Appraisal Evaluations found"
+      },
+      "created": "A new Appraisal Evaluation is created with identifier {{ param }}",
+      "updated": "A Appraisal Evaluation is updated with identifier {{ param }}",
+      "deleted": "A Appraisal Evaluation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appraisal Evaluation {{ id }}?"
+      },
+      "detail": {
+        "title": "Appraisal Evaluation"
+      },
+      "id": "ID",
+      "answerFlag": "Answer Flag",
+      "description": "Description",
+      "employeeId": "Employee Id",
+      "appraisalReviewId": "Appraisal Review Id",
+      "availablePoints": "Available Points",
+      "scoredPoints": "Scored Points",
+      "remark": "Remark",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "appraisalEvaluationParameter": "Appraisal Evaluation Parameter"
+    }
+  }
+}

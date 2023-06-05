@@ -11,7 +11,23 @@
     <property name="datetimeType" value="datetime(6)" dbms="mysql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122148_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122149_added_entity_MasterPerformanceIndicator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122150_added_entity_PerformanceIndicator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122151_added_entity_PerformanceAppraisal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122152_added_entity_AppraisalReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122153_added_entity_PerformanceReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122154_added_entity_AppraisalCommentsReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122155_added_entity_EmployeeGoalsReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122156_added_entity_AppraisalEvaluationParameter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122157_added_entity_AppraisalEvaluation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230605122150_added_entity_constraints_PerformanceIndicator.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122151_added_entity_constraints_PerformanceAppraisal.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122152_added_entity_constraints_AppraisalReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122153_added_entity_constraints_PerformanceReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122154_added_entity_constraints_AppraisalCommentsReview.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230605122157_added_entity_constraints_AppraisalEvaluation.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

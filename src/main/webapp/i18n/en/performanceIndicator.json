@@ -1,0 +1,30 @@
+{
+  "performanceSampleApplicationApp": {
+    "performanceIndicator": {
+      "home": {
+        "title": "Performance Indicators",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Performance Indicator",
+        "createOrEditLabel": "Create or edit a Performance Indicator",
+        "notFound": "No Performance Indicators found"
+      },
+      "created": "A new Performance Indicator is created with identifier {{ param }}",
+      "updated": "A Performance Indicator is updated with identifier {{ param }}",
+      "deleted": "A Performance Indicator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Performance Indicator {{ id }}?"
+      },
+      "detail": {
+        "title": "Performance Indicator"
+      },
+      "id": "ID",
+      "designationId": "Designation Id",
+      "indicatorValue": "Indicator Value",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "masterPerformanceIndicator": "Master Performance Indicator"
+    }
+  }
+}

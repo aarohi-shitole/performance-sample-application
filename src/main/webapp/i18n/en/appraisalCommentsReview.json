@@ -1,0 +1,32 @@
+{
+  "performanceSampleApplicationApp": {
+    "appraisalCommentsReview": {
+      "home": {
+        "title": "Appraisal Comments Reviews",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Appraisal Comments Review",
+        "createOrEditLabel": "Create or edit a Appraisal Comments Review",
+        "notFound": "No Appraisal Comments Reviews found"
+      },
+      "created": "A new Appraisal Comments Review is created with identifier {{ param }}",
+      "updated": "A Appraisal Comments Review is updated with identifier {{ param }}",
+      "deleted": "A Appraisal Comments Review is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Appraisal Comments Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Appraisal Comments Review"
+      },
+      "id": "ID",
+      "comment": "Comment",
+      "commentType": "Comment Type",
+      "appraisalReviewId": "Appraisal Review Id",
+      "refFormName": "Ref Form Name",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "employee": "Employee"
+    }
+  }
+}

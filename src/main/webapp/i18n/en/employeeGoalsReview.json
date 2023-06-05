@@ -1,0 +1,33 @@
+{
+  "performanceSampleApplicationApp": {
+    "employeeGoalsReview": {
+      "home": {
+        "title": "Employee Goals Reviews",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Employee Goals Review",
+        "createOrEditLabel": "Create or edit a Employee Goals Review",
+        "notFound": "No Employee Goals Reviews found"
+      },
+      "created": "A new Employee Goals Review is created with identifier {{ param }}",
+      "updated": "A Employee Goals Review is updated with identifier {{ param }}",
+      "deleted": "A Employee Goals Review is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee Goals Review {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Goals Review"
+      },
+      "id": "ID",
+      "goalDescription": "Goal Description",
+      "goalCategory": "Goal Category",
+      "goaltype": "Goaltype",
+      "goalSetBy": "Goal Set By",
+      "employeeId": "Employee Id",
+      "appraisalReviewId": "Appraisal Review Id",
+      "status": "Status",
+      "companyId": "Company Id",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By"
+    }
+  }
+}
