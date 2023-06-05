@@ -1,0 +1,155 @@
+entity Employee {
+    firstName String
+   middleName String
+    lastName String
+    gender String
+    empUniqueId String required   // need to be unique but company wise so we can handle it throght the code
+    joindate Instant
+    status String
+    emailId String  // Added new field
+   employmentTypeId Long
+	reportingEmpId Long	//newly added
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity MasterPerformanceIndicator {
+   	category String //MasterLookup value like Organizational and Technical,Target  needs to groom about category
+    type String   //  MasterLookup value like Professional and Personal
+    name String	
+    description String	
+    weightage Long
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity PerformanceIndicator {
+   designationId Long
+    //indicatorName String Or masterPerformanceId Long //added mapping for masterPerformance object	  						
+    indicatorValue String  //MasterLookup value like Beginner/Intermediate/Advanced or any number as per requirement
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity PerformanceAppraisal { //needs to discuss
+    employeeId Long
+    //appraisalReviewId Long  //added mapping for appraisalReview object---- oneto one	
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity AppraisalReview {
+    //employeeId Long // Added mapping of emmploye object-- many to one
+    reportingOfficer String
+    roDesignation String
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity PerformanceReview{
+    appraisalReviewId Long
+   // performanceIndicatorId Long  //added mapping so that we can get expected indicator value as well - many to one	  						
+    employeeRemark String  //MasterLookup value like Beginner/Intermediate/Advanced or any number, percentage as per requirement
+    appraiserRemark String  //MasterLookup value like Beginner/Intermediate/Advanced or any number, percentage as per requirement
+    reviewerRemark String   //MasterLookup value like Beginner/Intermediate/Advanced or any number, percentage as per requirement
+    selfScored String
+    scoredByAppraiser String
+    scoredByReviewer String
+    appraisalStatus String  // masterLookup value like submitted, appraisalPending, reviewPending and done
+    submissionDate Instant
+    appraisalDate Instant
+    reviewDate Instant
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+// these feilds are added for lokmanya
+    target Long
+    targetAchived Long
+
+}
+
+entity AppraisalCommentsReview{
+    comment String
+    commentType String //  like SelfComment, AppraiserComment, ReviewerComment
+   // employeeId Long // Added mapping of emmploye object--- many to one
+    appraisalReviewId Long
+    refFormName String // this is for diffrent form in performance review like AchievementsReview, ResponsibilitiesReview, StrengthsReview, ImprovementReview, TrainingsRequiredReview and AppraisalRemarksReview
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity EmployeeGoalsReview{
+    goalDescription String
+    goalCategory String //  like personal and professional 
+    goaltype String  // like lastyear and currentyear
+    goalSetBy String  //  like Self, Appraiser, Reviewer
+    employeeId Long 
+    appraisalReviewId Long
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity AppraisalEvaluationParameter{ 
+    name String
+    description String
+    type String  //MasterLookup value HRD or RO parameters
+    companyId Long
+   status String
+    lastModified Instant
+    lastModifiedBy String
+}
+
+entity AppraisalEvaluation{
+    //AppraisalEvaluationParameterId Long //added mapping so that we can get expected parameter description--- many to one
+    answerFlag Boolean
+    description String
+    employeeId Long 
+    appraisalReviewId Long
+    availablePoints Long
+    scoredPoints Long
+    remark String
+    status String
+    companyId Long
+    lastModified Instant
+    lastModifiedBy String
+}
+
+relationship ManyToOne {
+PerformanceIndicator {masterPerformanceIndicator} to MasterPerformanceIndicator
+AppraisalReview  {employee } to Employee 
+PerformanceReview {performanceIndicator} to PerformanceIndicator 
+AppraisalCommentsReview {employee } to Employee 
+AppraisalEvaluation {AppraisalEvaluationParameter} to AppraisalEvaluationParameter
+}
+
+relationship OneToOne {
+PerformanceAppraisal  {appraisalReview} to AppraisalReview 
+}
+
+  // Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg
